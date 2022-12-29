@@ -43,7 +43,15 @@ public class ForLoop {
         String buildingString = "";
 
 //        code here
+        for(int i= start; i < end; i++){
+            buildingString = buildingString + i +" ";
 
+        }
         return buildingString;
+    }
+    public static void main (String[] args){
+        ForLoop A = new ForLoop();
+        System.out.println(A.returnNumbers(0, 10));
+
     }
 }
