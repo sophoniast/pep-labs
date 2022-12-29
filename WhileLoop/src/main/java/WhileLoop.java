@@ -37,7 +37,16 @@ public class WhileLoop {
         int i = 0;
 
 //        code here
-
+        while(i<6){
+            sum+=i;
+            i++;
+            System.out.println("i= "+ i);
+            System.out.println("Sum= "+ sum);
+        }
         return sum;
+    }
+    public void main(String[] args){
+        WhileLoop w = new WhileLoop();
+        w.whileExample(10);
     }
 }
