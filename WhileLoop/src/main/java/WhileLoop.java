@@ -46,7 +46,7 @@ public class WhileLoop {
         return sum;
     }
 
-    public static void main(String[] args){
+    public static void main (String[] args){
         WhileLoop a= new WhileLoop();
         a.whileExample(6);
     
