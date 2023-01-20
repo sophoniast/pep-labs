@@ -1,5 +1,9 @@
 package com.revature;
 
+import org.eclipse.jetty.server.Authentication.User;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.javalin.Javalin;
 
 /**
@@ -18,6 +22,8 @@ public class JavalinSingleton {
          */
         app.post("/problem1", ctx -> {
                 //implement logic here
+                String name = ctx.body();
+                ObjectMapper object = new ObjectMapper();
         });
 
         /**
@@ -29,6 +35,13 @@ public class JavalinSingleton {
          */
         app.post("/problem2", ctx -> {
                //implement logic here
+               String switchName = ctx.body();
+               ObjectMapper switcher = new ObjectMapper();
+               Song user = switcher.readValue(switchName, Song.class);
+               ctx.contentType("application/json");
+               user.setArtistName("Beatles");
+               String newName = switcher.writeValueAsString(user);
+               ctx.result(newName);
         });
 
 

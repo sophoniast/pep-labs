@@ -66,4 +66,7 @@ public class Song {
             "}";
     }
 
+    public class getArtistName {
+    }
+
 }
