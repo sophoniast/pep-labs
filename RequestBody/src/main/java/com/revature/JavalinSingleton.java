@@ -22,8 +22,9 @@ public class JavalinSingleton {
          */
         app.post("/problem1", ctx -> {
                 //implement logic here
-                String name = ctx.body();
-                ObjectMapper object = new ObjectMapper();
+                List<Song> artistName = Song.getArtistName();
+                System.out.println(Song.);      
+
         });
 
         /**
