@@ -3,6 +3,8 @@ package Application.Service;
 import Application.Model.Flight;
 import Application.DAO.FlightDAO;
 
+import static org.mockito.ArgumentMatchers.nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,10 +49,7 @@ public class FlightService {
      */
     public Flight addFlight(Flight flight){
         Flight addFlight = this.flightDAO.insertFlight(flight);
-        if(addFlight == null)
-        return null;
-        else
-        addFlight = flightDAO.insertFlight(flight);
+
         return addFlight;
     }
 
@@ -71,7 +70,7 @@ public class FlightService {
         if (flightFromDb == null)
         return null;
         flightDAO.updateFlight((flight_id), flight);
-        return this.flightDAO.getFlightById(flight_id);
+        return flightFromDb;
 
     }
 
@@ -96,8 +95,12 @@ public class FlightService {
      * @return all flights departing from departure_city and arriving at arrival_city.
      */
     public List<Flight> getAllFlightsFromCityToCity(String departure_city, String arrival_city) {
-        List<Flight> CityToCity = new ArrayList<>();
-        CityToCity = flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
-        return CityToCity;
+        String departure = departure_city;
+        String arrival = arrival_city;
+        if(departure == null || arrival == null)
+        return null;
+        else
+        return flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
+        
     }
 }

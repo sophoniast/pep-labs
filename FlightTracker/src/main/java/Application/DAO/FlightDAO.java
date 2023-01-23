@@ -33,7 +33,7 @@ public class FlightDAO {
         List<Flight> flights = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "SELECT * FROM flight";
+            String sql = "SELECT * FROM flight;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
@@ -71,9 +71,7 @@ public class FlightDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
-            preparedStatement.setString(1, flight.flight_id);
-            preparedStatement.setString(2, flight.departure_city);
-            preparedStatement.setInt(3, flight.arrival_city);
+           preparedStatement.setInt(1 ,id);
             
             
             ResultSet rs = preparedStatement.executeQuery();
@@ -120,7 +118,7 @@ public class FlightDAO {
             //write preparedStatement's setString and setInt methods here.
             preparedStatement.setString(1, flight.getDeparture_city());
             preparedStatement.setString(2, flight.getArrival_city());
-            preparedStatement.setInt(3,flight.getFlight_id());
+            
 
             preparedStatement.executeUpdate();
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
@@ -159,10 +157,10 @@ public class FlightDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write PreparedStatement setString and setInt methods here.
-            preparedStatement.setInt(1,flight.getFlight_id());
-            preparedStatement.setString(2, flight.getDeparture_city());
-            preparedStatement.setString(3, flight.getArrival_city());
-
+            
+            preparedStatement.setString(1, flight.getDeparture_city());
+            preparedStatement.setString(2, flight.getArrival_city());
+            preparedStatement.setInt(3,id);
 
             preparedStatement.executeUpdate();
         }catch(SQLException e){
