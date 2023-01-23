@@ -95,12 +95,8 @@ public class FlightService {
      * @return all flights departing from departure_city and arriving at arrival_city.
      */
     public List<Flight> getAllFlightsFromCityToCity(String departure_city, String arrival_city) {
-        String departure = departure_city;
-        String arrival = arrival_city;
-        if(departure == null || arrival == null)
-        return null;
-        else
-        return flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
+       List<Flight> flyer = flightDAO.getAllFlightsFromCityToCity(departure_city, arrival_city);
+        return flyer;
         
     }
 }
