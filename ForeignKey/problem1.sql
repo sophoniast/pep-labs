@@ -1,3 +1,2 @@
-CREATE TABLE post(id SERIAL NOT NULL, 
-post VARCHAR(255),PRIMARY KEY(id.post), 
-CONSTRAINT user_fk FOREIGN KEY (id.user) REFERENCES  user(id.user));
+CREATE TABLE post(id SERIAL PRIMARY KEY, 
+post VARCHAR(255), FOREIGN KEY (user_fk) REFERENCES user(id.user));
