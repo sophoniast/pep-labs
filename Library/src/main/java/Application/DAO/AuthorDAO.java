@@ -56,7 +56,10 @@ public class AuthorDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //write preparedStatement's setString method here.
-            preparedStatement.setString(0, Author.setName);
+            preparedStatement.setString(0, author.getName());
+            
+            
+            
             preparedStatement.executeUpdate();
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
             if(pkeyResultSet.next()){
